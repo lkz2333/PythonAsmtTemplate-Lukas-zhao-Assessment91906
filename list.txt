@@ -1,6 +1,6 @@
-Milk 2L | $4.80 | Countdown
-Milk 1L | $2.70 | PaknSave
-Milk 3L | New World | $8.10
-Rice 1kg | $3.60 | PaknSave
-Rice 750g | Countdown | $3.20
-Orange Juice 1500ml | $4.50 | New World
+Milk 2L , $4.80 | Countdown
+Milk 1L , $2.70 | PaknSave
+Milk 3L , $8.10 | New World
+Rice 1kg , $3.60 | PaknSave
+Rice 750g , $3.20 | Countdown
+Orange Juice 1500ml , $4.50 | New World

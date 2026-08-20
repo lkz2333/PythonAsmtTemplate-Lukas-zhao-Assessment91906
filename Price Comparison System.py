@@ -88,6 +88,12 @@ def parse_line(line):
 
 
 def search(query):
+    # only allow a word with at least 2 letters (no spaces, no single letter)
+    cleaned_query = query.strip()
+    if not cleaned_query or " " in query or len(cleaned_query) == 1 or not re.fullmatch(r"[A-Za-z]+", cleaned_query):
+        messagebox.showerror("Input Error", "Please enter a valid word (at least 2 letters, no spaces).")
+        result_text.delete("1.0", tk.END)
+        return
 
     lines = load_lines()
 
@@ -97,7 +103,7 @@ def search(query):
         if item is not None:
             parsed_items.append(item)
     
-    key = query.strip().lower()
+    key = cleaned_query.lower()
 
     if key:
         parsed_items = [item for item in parsed_items if key in item["name"].lower()]
@@ -116,8 +122,7 @@ def search(query):
         tk.END,
         "Most affordable items:\n"
         f"{best['name']} | ${best['price']:.2f} | {best['quantity']}{best['unit']} | "
-        f"${best['unit_price']:.4f}/{best['base_unit']}\n\n",
-        f"supermarket: {best['supermarket']}\n\n"
+        f"${best['unit_price']:.4f}/{best['base_unit']} | {best['supermarket']}\n\n"
     )
     result_text.insert(tk.END, "Sort by unit price (low -> high):\n")
 
@@ -125,10 +130,8 @@ def search(query):
         result_text.insert(
             tk.END,
             f"{i}. {item['name']} | ${item['price']:.2f} | {item['quantity']}{item['unit']} | "
-            f"${item['unit_price']:.4f}/{item['base_unit']}\n",
-            f"supermarket: {item['supermarket']}\n\n",
+            f"${item['unit_price']:.4f}/{item['base_unit']} | {item['supermarket']}\n",
         )
-
 #TKinter GUI setup
 windows = tk.Tk()
 windows.title("Price Comparison System")
@@ -142,7 +145,7 @@ title_label.pack(pady=10)
 
 # logo frame
 logo_frame = tk.Frame(windows, bg="lightblue", width=100, height=50)
-logo_frame.place(x=10, y=10)
+logo_frame.place(x=10, y=10)    
 logo_label = tk.Label(logo_frame, text="Logo", font=("Arial", 12), bg="lightblue")
 logo_label.pack(pady=10)
 
