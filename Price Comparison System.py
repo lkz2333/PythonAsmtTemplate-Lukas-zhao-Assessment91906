@@ -132,7 +132,7 @@ class SignUpPage(tk.Frame):
         #Add a row for the buttons and pack them side by side
         button_row = tk.Frame(self, bg="#F1EFE8")
         button_row.pack(pady=10)
-        
+
         self.button_signup = tk.Button(button_row, text="Sign Up", width=20,bg="#0F6E56",fg="white",command=self.sign_up)
         self.button_signup.pack(side=tk.RIGHT, padx=(0, 10))
 
@@ -244,57 +244,101 @@ class MainPage(tk.Frame):
 
         image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Logo.png")
         self.img_logo = ImageTk.PhotoImage(Image.open(image_path).resize((50, 50)))
+        image_Discount = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Discount.png")
+        self.img_Discount = ImageTk.PhotoImage(Image.open(image_Discount).resize((50, 50)))
+        image_History = os.path.join(os.path.dirname(os.path.abspath(__file__)), "History.png")
+        self.img_History = ImageTk.PhotoImage(Image.open(image_History).resize((50, 50)))
+        image_Home = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Home.png")
+        self.img_Home = ImageTk.PhotoImage(Image.open(image_Home).resize((50, 50)))
+        image_Nearby = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Nearby.png")
+        self.img_Nearby = ImageTk.PhotoImage(Image.open(image_Nearby).resize((50, 50)))
+        image_Search = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Search.png")
+        self.img_Search = ImageTk.PhotoImage(Image.open(image_Search).resize((50, 50)))
+        image_Settings = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Settings.png")
+        self.img_Settings = ImageTk.PhotoImage(Image.open(image_Settings).resize((50, 50)))
 
-        self.create_widgets()
-
-    def create_widgets(self):
-        self.result_text = tk.Text(self, width=80, height=24)
         #TKinter GUI setup
 
-        # title label
-        title_frame = Frame(self, bg="#0F6E56", width=700, height=50)
-        title_frame.pack(fill=tk.X)
-        title_label = tk.Label(title_frame, text="Price Comparison System", font=("Arial", 20))
-        title_label.pack(pady=10)
 
         # logo frame
-        logo_frame = tk.Frame(self, bg="lightblue", width=100, height=50)
-        logo_frame.place(x=10, y=10)    
-        logo_label = tk.Label(logo_frame, text="Logo", font=("Arial", 12), )
-        logo_label.pack(pady=10)
+        logo_frame = tk.Frame(self, bg="white")
+        logo_frame.pack(side=tk.TOP, fill=tk.X)
+        tk.Label(logo_frame, image=self.img_logo, bg="white").pack(side=tk.LEFT, padx=10, pady=10)
+        logo_label = tk.Label(logo_frame, text="PriceWise", font=("Arial", 12), bg="white")
+        logo_label.pack(side=tk.LEFT)
+
 
         # menu frame
-        menu_frame = tk.Frame(self, bg="brown", width=50, height=700)
-        menu_frame.pack(side=tk.LEFT, fill=tk.X)
-        menu_label = tk.Label(menu_frame, text="Menu", font=("Arial", 12),  height=700)
-        menu_label.pack(pady=10)
+        menu_frame = tk.Frame(self, bg="white", width=200, height=700)
+        menu_frame.pack(side=tk.LEFT, fill=tk.Y)
+        menu_frame.pack_propagate(False)
 
-        # search frame
-        search_frame = tk.Frame(self, bg="#F1EFE8", width=700, height=50)
-        search_frame.pack(fill=tk.X)
-        search_label = tk.Label(search_frame, text="Enter product name:", font=("Arial", 12))
-        search_label.pack(pady=10)
+        # Home row (highlighted green because this is the main page)
+        row_home = tk.Frame(menu_frame, bg="#DCEEE3")
+        row_home.pack(fill=tk.X)
+        tk.Label(row_home, image=self.img_Home, bg="#DCEEE3").pack(side=tk.LEFT, padx=10, pady=10)
+        tk.Label(row_home, text="Home", font=("Arial", 12), fg="#2C2C2A", bg="#DCEEE3").pack(side=tk.LEFT)
 
-        product_name = tk.Entry(search_frame, width=60)
-        product_name.pack(pady=10, side=tk.LEFT, padx=8)
-        button = tk.Button(search_frame, text="Search", command=lambda: self.search(product_name.get()))
-        button.pack(pady=10, side=tk.RIGHT, padx=8)
+        # Discount row
+        row_discount = tk.Frame(menu_frame, bg="white")
+        row_discount.pack(fill=tk.X)
+        self.button_discount = tk.Label(row_discount, image=self.img_Discount, bg="white")
+        self.button_discount.pack(side=tk.LEFT, padx=10, pady=10)
+        tk.Label(row_discount, text="Discount", font=("Arial", 12), fg="#2C2C2A", bg="white").pack(side=tk.LEFT)
+        row_discount.bind("<Button-1>", lambda e: self.controller.show_frame("discount"))
 
-        # result frame
-        result_frame = tk.Frame(self, bg="lightgreen", width=700, height=500)
-        result_frame.pack(fill=tk.BOTH, expand=True)
-        result_label = tk.Label(result_frame, text="Results", font=("Arial", 12), bg="lightgreen")
-        result_label.pack(pady=10)
+        # History row
+        row_history = tk.Frame(menu_frame, bg="white")
+        row_history.pack(fill=tk.X)
+        self.button_history = tk.Label(row_history, image=self.img_History, bg="white")
+        self.button_history.pack(side=tk.LEFT, padx=10, pady=10)
+        tk.Label(row_history, text="History", font=("Arial", 12), fg="#2C2C2A", bg="white").pack(side=tk.LEFT)
+        row_history.bind("<Button-1>", lambda e: self.controller.show_frame("history"))
 
+        # Nearby row
+        row_nearby = tk.Frame(menu_frame, bg="white")
+        row_nearby.pack(fill=tk.X)
+        self.button_nearby = tk.Label(row_nearby, image=self.img_Nearby, bg="white")
+        self.button_nearby.pack(side=tk.LEFT, padx=10, pady=10)
+        tk.Label(row_nearby, text="Nearby", font=("Arial", 12), fg="#2C2C2A", bg="white").pack(side=tk.LEFT)
+        row_nearby.bind("<Button-1>", lambda e: self.controller.show_frame("nearby"))
 
-        self.result_text = tk.Text(result_frame, width=80, height=24)
-        self.result_text.pack(fill=tk.BOTH, expand=True, padx=12, pady=8)
+        # Settings row, pinned to bottom, smaller font
+        row_settings = tk.Frame(menu_frame, bg="white")
+        row_settings.pack(side=tk.BOTTOM, fill=tk.X, pady=10)
+        tk.Label(row_settings, image=self.img_Settings, bg="white").pack(side=tk.LEFT, padx=10)
+        tk.Label(row_settings, text="Settings", font=("Arial", 9), fg="#2C2C2A", bg="white").pack(side=tk.LEFT)
+                # right content area
+        content_frame = tk.Frame(self, bg="white")
+        content_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+        big_title = tk.Label(content_frame, text="Compare grocery prices", font=("Arial", 22, "bold"), bg="white")
+        big_title.pack(anchor="w", padx=20, pady=(20, 5))
+
+        subtitle = tk.Label(content_frame, text="Find the cheapest option across supermarkets", font=("Arial", 10), fg="#9E9E9E", bg="white")
+        subtitle.pack(anchor="w", padx=20, pady=(0, 15))
+
+        search_row = tk.Frame(content_frame, bg="white")
+        search_row.pack(anchor="w", padx=20, pady=(0, 15))
+        tk.Label(search_row, image=self.img_Search, bg="white").pack(side=tk.LEFT, padx=(0, 5))
+        self.entry_search = tk.Entry(search_row, width=40)
+        self.entry_search.pack(side=tk.LEFT, padx=5)
+        tk.Button(search_row, text="Search", bg="#0F6E56", fg="white",
+                  command=lambda: self.search(self.entry_search.get())).pack(side=tk.LEFT, padx=5)
+
+        # three result rows: supermarket name left, price right
+        self.results_frame = tk.Frame(content_frame, bg="white")
+        self.results_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
+        self.result_rows = []
+        for i in range(3):
+            row = tk.Frame(self.results_frame, bg="white", highlightbackground="#E0E0E0", highlightthickness=1)
+            row.pack(side=tk.TOP, fill=tk.X, pady=5)
+            self.result_rows.append(row)
 
     def search(self, query):
         cleaned_query = query.strip()
         if not cleaned_query or " " in query or len(cleaned_query) == 1 or not re.fullmatch(r"[A-Za-z]+", cleaned_query):
             messagebox.showerror("Input Error", "Please enter a valid word (at least 2 letters, no spaces).")
-            self.result_text.delete("1.0", tk.END)
             return
 
         lines = load_lines()
@@ -309,28 +353,20 @@ class MainPage(tk.Frame):
         if key:
             parsed_items = [item for item in parsed_items if key in item["name"].lower()]
 
-        self.result_text.delete("1.0", tk.END)
+        parsed_items.sort(key=lambda item: item["unit_price"])
+
+        # clear previous results from each row
+        for row in self.result_rows:
+            for widget in row.winfo_children():
+                widget.destroy()
+
         if not parsed_items:
-            self.result_text.insert(tk.END, "No comparable products were found.")
+            tk.Label(self.result_rows[0], text="No comparable products were found.", bg="white").pack(pady=10)
             return
 
-        parsed_items.sort(key=lambda item: item["unit_price"])
-        best = parsed_items[0]
-
-        self.result_text.insert(
-            tk.END,
-            "Most affordable items:\n"
-            f"{best['name']} | ${best['price']:.2f} | {best['quantity']}{best['unit']} | "
-            f"${best['unit_price']:.4f}/{best['base_unit']} | {best['supermarket']}\n\n"
-        )
-        self.result_text.insert(tk.END, "Sort by unit price (low -> high):\n")
-
-        for i, item in enumerate(parsed_items, start=1):
-            self.result_text.insert(
-                tk.END,
-                f"{i}. {item['name']} | ${item['price']:.2f} | {best['quantity']}{best['unit']} | "
-                f"${item['unit_price']:.4f}/{item['base_unit']} | {best['supermarket']}\n",
-            )
+        for item, row in zip(parsed_items, self.result_rows):
+            tk.Label(row, text=item["supermarket"], bg="white").pack(side=tk.LEFT, padx=10, pady=10)
+            tk.Label(row, text=f"${item['price']:.2f}", bg="white").pack(side=tk.RIGHT, padx=10, pady=10)
 
 
         
