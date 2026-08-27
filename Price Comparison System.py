@@ -7,6 +7,7 @@
 import os#this is used to get the current file path and read the list.txt file.
 import re#this is used to parse the price and quantity from the input string.
 import tkinter as tk
+from PIL import Image, ImageTk
 import json
 from tkinter import Frame#this is used to create a frame in the GUI.
 from tkinter import messagebox
@@ -94,8 +95,17 @@ class SignUpPage(tk.Frame):
     def __init__(self, parent, controller):
         super().__init__(parent)
         self.controller = controller
+
+        image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Logo.png")
+        self.img_logo = ImageTk.PhotoImage(Image.open(image_path).resize((50, 50)))
+
         self.create_widgets()
     def create_widgets(self):
+        logo_frame = tk.Frame(self, bg="white")
+        logo_frame.pack(pady=(20, 10))
+
+        tk.Label(logo_frame, image=self.img_logo).pack(padx=10,pady=10)
+
         self.label_username = tk.Label(self, text="Username:")
         self.label_username.pack(pady=5)
 
@@ -115,7 +125,7 @@ class SignUpPage(tk.Frame):
         username = self.entry_username.get()
         password = self.entry_password.get()
 
-        if not username or not password or " " in username or " " in password or len(username) < 3 or len(password) < 3:
+        if not username or not password or " " in username or " " in password or len(username) < 3 or len(password) < 3 or len(username) > 20 or len(password) > 20:
             messagebox.showerror("Sign Up Failed", "Username and password must be at least 3 characters long and cannot contain spaces.")
             return
 
@@ -146,9 +156,17 @@ class LoginPage(tk.Frame):
     def __init__(self, parent, controller):
         super().__init__(parent)
         self.controller = controller
+
+        image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Logo.png")
+        self.img_logo = ImageTk.PhotoImage(Image.open(image_path).resize((50, 50)))
+
         self.create_widgets()
 
     def create_widgets(self):
+        logo_frame = tk.Frame(self, bg="white")
+        logo_frame.pack(pady=(20, 10))
+        tk.Label(logo_frame, image=self.img_logo).pack(padx=10,pady=10)
+
         self.label_username = tk.Label(self, text="Username:")
         self.label_username.pack(pady=5)
 
@@ -195,6 +213,10 @@ class MainPage(tk.Frame):
     def __init__(self, parent, controller):
         super().__init__(parent)
         self.controller = controller
+
+        image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Logo.png")
+        self.img_logo = ImageTk.PhotoImage(Image.open(image_path).resize((50, 50)))
+
         self.create_widgets()
 
     def create_widgets(self):
@@ -202,27 +224,27 @@ class MainPage(tk.Frame):
         #TKinter GUI setup
 
         # title label
-        title_frame = Frame(self, bg="lightblue", width=700, height=50)
+        title_frame = Frame(self, bg="#0F6E56", width=700, height=50)
         title_frame.pack(fill=tk.X)
-        title_label = tk.Label(title_frame, text="Price Comparison System", font=("Arial", 20), bg="lightblue")
+        title_label = tk.Label(title_frame, text="Price Comparison System", font=("Arial", 20))
         title_label.pack(pady=10)
 
         # logo frame
         logo_frame = tk.Frame(self, bg="lightblue", width=100, height=50)
         logo_frame.place(x=10, y=10)    
-        logo_label = tk.Label(logo_frame, text="Logo", font=("Arial", 12), bg="lightblue")
+        logo_label = tk.Label(logo_frame, text="Logo", font=("Arial", 12), )
         logo_label.pack(pady=10)
 
         # menu frame
         menu_frame = tk.Frame(self, bg="brown", width=50, height=700)
         menu_frame.pack(side=tk.LEFT, fill=tk.X)
-        menu_label = tk.Label(menu_frame, text="Menu", font=("Arial", 12), bg="brown", height=700)
+        menu_label = tk.Label(menu_frame, text="Menu", font=("Arial", 12),  height=700)
         menu_label.pack(pady=10)
 
         # search frame
-        search_frame = tk.Frame(self, bg="yellow", width=700, height=50)
+        search_frame = tk.Frame(self, bg="#F1EFE8", width=700, height=50)
         search_frame.pack(fill=tk.X)
-        search_label = tk.Label(search_frame, text="Enter product name:", font=("Arial", 12), bg="yellow")
+        search_label = tk.Label(search_frame, text="Enter product name:", font=("Arial", 12))
         search_label.pack(pady=10)
 
         product_name = tk.Entry(search_frame, width=60)
@@ -289,6 +311,8 @@ class App(tk.Tk):
         super().__init__()
         self.title("Price Comparison System")
         self.geometry("700x600")
+
+        self.img_logo = ImageTk.PhotoImage(Image.open("Logo.png").resize((50, 50)))
 
         self.frames = {}
 
