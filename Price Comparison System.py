@@ -99,6 +99,7 @@ class SignUpPage(tk.Frame):
         image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Logo.png")
         self.img_logo = ImageTk.PhotoImage(Image.open(image_path).resize((50, 50)))
 
+        self.configure(bg="#F1EFE8")
         self.create_widgets()
     def create_widgets(self):
         logo_frame = tk.Frame(self, bg="white")
@@ -106,27 +107,53 @@ class SignUpPage(tk.Frame):
 
         tk.Label(logo_frame, image=self.img_logo).pack(padx=10,pady=10)
 
-        self.label_username = tk.Label(self, text="Username:")
+        self.label_introduce = tk.Label(self, text="Compare supermarket prices")
+        self.label_introduce.pack(pady=5)
+
+        self.label_username = tk.Label(self, text="Username:",width=20, anchor="w", justify="left")
         self.label_username.pack(pady=5)
 
         self.entry_username = tk.Entry(self)
         self.entry_username.pack(pady=5)
 
-        self.label_password = tk.Label(self, text="Password:")
+        self.label_password = tk.Label(self, text="Password:",width=20, anchor="w", justify="left")
         self.label_password.pack(pady=5)
+
 
         self.entry_password = tk.Entry(self, show="*")
         self.entry_password.pack(pady=5)
 
-        self.button_signup = tk.Button(self, text="Sign Up", command=self.sign_up)
-        self.button_signup.pack(pady=10)
+        self.label_password_confirm = tk.Label(self, text="Confirm Password:",width=20, anchor="w", justify="left")
+        self.label_password_confirm.pack(pady=5)
+
+        self.entry_password_confirm = tk.Entry(self, show="*")
+        self.entry_password_confirm.pack(pady=5)
+
+        #Add a row for the buttons and pack them side by side
+        button_row = tk.Frame(self, bg="#F1EFE8")
+        button_row.pack(pady=10)
+        
+        self.button_signup = tk.Button(button_row, text="Sign Up", width=20,bg="#0F6E56",fg="white",command=self.sign_up)
+        self.button_signup.pack(side=tk.RIGHT, padx=(0, 10))
+
+        self.button_back = tk.Button(button_row, text="Back", width=8, bg="#F1EFE8", fg="#1E88E5", activebackground="#F1EFE8", activeforeground="#1E88E5", borderwidth=0, relief="flat", highlightthickness=0, cursor="hand2", command=lambda: self.controller.show_frame("login"))
+        self.button_back.pack(side=tk.LEFT)
+
+        #Add hover effect for the back button
+        self.button_back.bind("<Enter>", lambda e: self.button_back.config(fg="#0D47A1", font=("Arial", 10, "underline")))
+        self.button_back.bind("<Leave>", lambda e: self.button_back.config(fg="#1E88E5", font=("Arial", 10)))
+
 
     def sign_up(self):
         username = self.entry_username.get()
         password = self.entry_password.get()
+        confirm_password = self.entry_password.get()
 
         if not username or not password or " " in username or " " in password or len(username) < 3 or len(password) < 3 or len(username) > 20 or len(password) > 20:
             messagebox.showerror("Sign Up Failed", "Username and password must be at least 3 characters long and cannot contain spaces.")
+            return
+        if password != confirm_password:
+            messagebox.showerror("Sign Up Failed", "Passwords do not match.")
             return
 
         # Load existing user data from JSON file
@@ -160,6 +187,7 @@ class LoginPage(tk.Frame):
         image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Logo.png")
         self.img_logo = ImageTk.PhotoImage(Image.open(image_path).resize((50, 50)))
 
+        self.configure(bg="#F1EFE8")
         self.create_widgets()
 
     def create_widgets(self):
@@ -167,25 +195,25 @@ class LoginPage(tk.Frame):
         logo_frame.pack(pady=(20, 10))
         tk.Label(logo_frame, image=self.img_logo).pack(padx=10,pady=10)
 
-        self.label_username = tk.Label(self, text="Username:")
+        self.label_introduce = tk.Label(self, text="Compare supermarket prices")
+        self.label_introduce.pack(pady=5)
+
+        self.label_username = tk.Label(self, text="Username:",width=20, anchor="w", justify="left")
         self.label_username.pack(pady=5)
 
         self.entry_username = tk.Entry(self)
         self.entry_username.pack(pady=5)
 
-        self.label_password = tk.Label(self, text="Password:")
+        self.label_password = tk.Label(self, text="Password:",width=20, anchor="w", justify="left")
         self.label_password.pack(pady=5)
 
         self.entry_password = tk.Entry(self, show="*")
         self.entry_password.pack(pady=5)
 
-        self.button_login = tk.Button(self, text="Login", command=self.login)
+        self.button_login = tk.Button(self, text="Login",width=20,bg="#0F6E56",fg="white", command=self.login)
         self.button_login.pack(pady=10)
 
-        self.button_signup = tk.Button(
-        self,
-        text="Sign Up",
-        command=lambda: self.controller.show_frame("signup"))
+        self.button_signup = tk.Button(self, text="Sign Up",width=20,bg="#0F6E56",fg="white",command=lambda: self.controller.show_frame("signup"))
         self.button_signup.pack(pady=10)
 
     def login(self):
