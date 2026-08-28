@@ -1,6 +1,78 @@
-Milk 2L , $4.80 | Countdown
-Milk 1L , $2.70 | PaknSave
-Milk 3L , $8.10 | New World
-Rice 1kg , $3.60 | PaknSave
-Rice 750g , $3.20 | Countdown
-Orange Juice 1500ml , $4.50 | New World
+Milk 2L , 2026-08-20, $4.80 | Countdown
+Milk 1L , 2026-08-20, $2.70 | PaknSave
+Milk 3L , 2026-08-20, $8.10 | New World
+Rice 1kg , 2026-08-20, $3.60 | PaknSave
+Rice 750g , 2026-08-20, $3.20 | Countdown
+Orange Juice 1500ml , 2026-08-20, $4.50 | New World
+Bread 700g , 2026-08-20, $3.50 | Countdown
+Bread 800g , 2026-08-20, $3.90 | PaknSave
+Eggs 12ea , 2026-08-20, $6.50 | New World
+Eggs 6ea , 2026-08-20, $3.80 | Countdown
+Butter 500g , 2026-08-20, $7.20 | PaknSave
+Cheese 1kg , 2026-08-20, $12.50 | New World
+Cheese 500g , 2026-08-20, $6.80 | Countdown
+Chicken Breast 1kg , 2026-08-20, $11.00 | PaknSave
+Beef Mince 1kg , 2026-08-20, $13.50 | New World
+Pasta 500g , 2026-08-20, $2.20 | Countdown
+Pasta 1kg , 2026-08-20, $4.00 | PaknSave
+Cereal 500g , 2026-08-20, $5.60 | New World
+Sugar 1kg , 2026-08-20, $2.80 | Countdown
+Flour 1.5kg , 2026-08-20, $3.10 | PaknSave
+Apples 1kg , 2026-08-20, $4.20 | New World
+Bananas 1kg , 2026-08-20, $3.10 | Countdown
+Potatoes 2kg , 2026-08-20, $5.50 | PaknSave
+Tomatoes 500g , 2026-08-20, $4.90 | New World
+Chips 150g , 2026-08-20, $3.30 | Countdown
+Coffee 200g , 2026-08-20, $9.80 | PaknSave
+Milk 2L , 2026-07-01, $4.56 | Countdown
+Milk 2L , 2026-08-01, $4.94 | Countdown
+Milk 1L , 2026-07-01, $2.57 | PaknSave
+Milk 1L , 2026-08-01, $2.78 | PaknSave
+Milk 3L , 2026-07-01, $7.70 | New World
+Milk 3L , 2026-08-01, $8.34 | New World
+Rice 1kg , 2026-07-01, $3.42 | PaknSave
+Rice 1kg , 2026-08-01, $3.71 | PaknSave
+Rice 750g , 2026-07-01, $3.04 | Countdown
+Rice 750g , 2026-08-01, $3.30 | Countdown
+Orange Juice 1500ml , 2026-07-01, $4.28 | New World
+Orange Juice 1500ml , 2026-08-01, $4.64 | New World
+Bread 700g , 2026-07-01, $3.33 | Countdown
+Bread 700g , 2026-08-01, $3.61 | Countdown
+Bread 800g , 2026-07-01, $3.71 | PaknSave
+Bread 800g , 2026-08-01, $4.02 | PaknSave
+Eggs 12ea , 2026-07-01, $6.18 | New World
+Eggs 12ea , 2026-08-01, $6.70 | New World
+Eggs 6ea , 2026-07-01, $3.61 | Countdown
+Eggs 6ea , 2026-08-01, $3.91 | Countdown
+Butter 500g , 2026-07-01, $6.84 | PaknSave
+Butter 500g , 2026-08-01, $7.42 | PaknSave
+Cheese 1kg , 2026-07-01, $11.88 | New World
+Cheese 1kg , 2026-08-01, $12.88 | New World
+Cheese 500g , 2026-07-01, $6.46 | Countdown
+Cheese 500g , 2026-08-01, $7.00 | Countdown
+Chicken Breast 1kg , 2026-07-01, $10.45 | PaknSave
+Chicken Breast 1kg , 2026-08-01, $11.33 | PaknSave
+Beef Mince 1kg , 2026-07-01, $12.83 | New World
+Beef Mince 1kg , 2026-08-01, $13.91 | New World
+Pasta 500g , 2026-07-01, $2.09 | Countdown
+Pasta 500g , 2026-08-01, $2.27 | Countdown
+Pasta 1kg , 2026-07-01, $3.80 | PaknSave
+Pasta 1kg , 2026-08-01, $4.12 | PaknSave
+Cereal 500g , 2026-07-01, $5.32 | New World
+Cereal 500g , 2026-08-01, $5.77 | New World
+Sugar 1kg , 2026-07-01, $2.66 | Countdown
+Sugar 1kg , 2026-08-01, $2.88 | Countdown
+Flour 1.5kg , 2026-07-01, $2.95 | PaknSave
+Flour 1.5kg , 2026-08-01, $3.19 | PaknSave
+Apples 1kg , 2026-07-01, $3.99 | New World
+Apples 1kg , 2026-08-01, $4.33 | New World
+Bananas 1kg , 2026-07-01, $2.95 | Countdown
+Bananas 1kg , 2026-08-01, $3.19 | Countdown
+Potatoes 2kg , 2026-07-01, $5.23 | PaknSave
+Potatoes 2kg , 2026-08-01, $5.67 | PaknSave
+Tomatoes 500g , 2026-07-01, $4.66 | New World
+Tomatoes 500g , 2026-08-01, $5.05 | New World
+Chips 150g , 2026-07-01, $3.14 | Countdown
+Chips 150g , 2026-08-01, $3.40 | Countdown
+Coffee 200g , 2026-07-01, $9.31 | PaknSave
+Coffee 200g , 2026-08-01, $10.09 | PaknSave
